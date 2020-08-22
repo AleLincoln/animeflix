@@ -34,6 +34,7 @@ function Carousel({
 
           return (
             <li key={video.titulo}>
+              <h3>{video.titulo}</h3>
               <VideoCard
                 videoTitle={video.titulo}
                 videoURL={video.url}
