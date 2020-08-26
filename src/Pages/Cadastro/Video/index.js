@@ -1,6 +1,5 @@
 import React from 'react';
 import PageDefault from '../../../components/PageDefault'
-import { Link } from 'react-router-dom'
 import {FormArea, Label, Input, Button} from '../../../components/FormStyle/styles'
 
 function CadastroVideo() {
