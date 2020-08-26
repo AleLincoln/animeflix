@@ -1,22 +1,33 @@
 import React from 'react';
 import PageDefault from '../../../components/PageDefault'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import {FormArea, Label, Input, Button} from '../../../components/FormStyle/styles'
 
 function CadastroVideo() {
-    return (
-      <PageDefault>
-        
-            <h1>Cadastro Vídeo</h1>
+  return (
+    <PageDefault>
+      <h1>Cadastro de vídeo</h1>
 
-            <Link to='/cadastro/Categoria'>
-              Cadastro de categorias
-              
-            </Link>
+      <FormArea>
+        <Label>
+          Nome da Vídeo
+    <Input type="text">
+          </Input>
+
+        </Label>
+        <Label>
+          Link
+    <Input type="text">
+          </Input>
+
+        </Label>
+        <Button tyle='submit' value='Cadastral'></Button>
+      </FormArea>
 
 
-        
-      </PageDefault>
-    )
-  }
 
-  export default CadastroVideo;
+    </PageDefault>
+  )
+}
+
+export default CadastroVideo;

@@ -1,6 +1,7 @@
 import React from 'react';
 import SlickSlider from 'react-slick';
 import styled from 'styled-components';
+//import Data from '../Data'
 
 const Container = styled.ul`
   padding: 0;
@@ -35,14 +36,19 @@ export const SliderItem = styled.li`
     height: 197px;
     object-fit: cover;
   }
+
+  &:hover{
+    background-color:black
+  }
 `;
+
 
 
 const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 300,
       centerMode: false,
       variableWidth: true,
