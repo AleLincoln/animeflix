@@ -1,68 +1,70 @@
 import React, { useState } from 'react';
 import PageDefault from '../../../components/PageDefault'
 import { FormArea, Label, Input } from '../../../components/FormStyle/styles'
+import FormField from '../../../components/FormField'
+
 
 function CadastroCategoria() {
 
-  const [nomeDaCategoria, setnomeDaCategoria] = useState('Valor inicial')
-  const [categorias, setCategorias] = useState(['vazio', 'cheio', 'meiocheio'])
+  
+  const initialValues = {
+    nome: '',
+    descricao: '',
+    cor: '#414141'
+  }
+
+
+  const [categories, setCategories] = useState([])
+  const [values, setValues] = useState(initialValues)
+
+
+  function setValue(chave, value){
+      setValues({
+        ...values,
+        [chave]:value
+      })
+      
+  }
+
+  function handleChange(item){
+
+    const {getAttribute, value} = item.target
+    setValue(getAttribute('name'), value)
+  }
 
 
   function handleSubmit(item) {
-    item.preventDefault();
-    setCategorias([
-      ...categorias,
-      nomeDaCategoria
+    item.preventDefault()
+    setCategories([
+      ...categories,
+      values
     ])
+
+    setValues(initialValues)
+    
   }
 
 
-  function pegarValor(algumaCoisa) {
-    console.log(nomeDaCategoria)
-    console.log(algumaCoisa.target.value)
-    setnomeDaCategoria(algumaCoisa.target.value)
-  }
 
   return (
     <PageDefault>
 
-      <h1>Cadastro de Categoria</h1>
+  <h1>Cadastro de Categoria: {values.nome}</h1>
 
       <FormArea onSubmit={handleSubmit}>
+        <FormField
+          value={values.nome}
+          onChange={handleChange}
+        />
         <div>
 
           <Label>
-            Nome da Categoria
-                <Input
-              type="text"
-              value={nomeDaCategoria}
-              onChange={pegarValor}
-            />
-
-          </Label>
-
-        </div>
-        <div>
-
-          <Label>
-            Descrição
-        <Input
-              type="text"
-              value={nomeDaCategoria}
-              onChange={pegarValor}
-            />
-
-          </Label>
-
-        </div>
-        <div>
-
-          <Label>
-            Descrição
+            Cor da categoria
         <Input
               type="color"
-              value={nomeDaCategoria}
-              onChange={pegarValor}
+              value={values.cor}
+              name='cor'
+              onChange={handleChange}
             />
 
           </Label>
@@ -73,9 +75,9 @@ function CadastroCategoria() {
 
 
       <ul>
-        {categorias.map((item, index) => {
+        {categories.map((item, index) => {
           return (
-            <li key={`${item}${index}`}>{item}</li>
+            <li key={`${item}${index}`}>{item.nome}</li>
           )
         })}
       </ul>

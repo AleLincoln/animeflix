@@ -10,6 +10,8 @@ export const Label = styled.label`
     display:flex;
     flex-direction:column;
     text-align:center;
+    justify-content:center;
+    align-itens:center;
     
 
 `
