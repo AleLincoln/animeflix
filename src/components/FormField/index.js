@@ -2,17 +2,17 @@ import React from 'react';
 import {Label, Input} from '../../components/FormStyle/styles'
 
 
-function FormField({ value, onChange }) {
+function FormField({label,type, name, value, onChange }) {
 
     return (
     <div>
 
         <Label>
-            Nome da Categoria
+            {label}
           <Input
-                type="text"
+                type={type}
                 value={value}
-                name='nome'
+                name={name}
                 onChange={onChange}
             />
 
@@ -20,6 +20,26 @@ function FormField({ value, onChange }) {
 
     </div>
     )
+
+}
+
+function FormFieldTextArea({label,type, name, value, onChange }){
+    return (
+        <div>
+    
+            <Label>
+                {label}
+              <textarea
+                    type={type}
+                    value={value}
+                    name={name}
+                    onChange={onChange}
+                />
+    
+            </Label>
+    
+        </div>
+        )
 
 }
 

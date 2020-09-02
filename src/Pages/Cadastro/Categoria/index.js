@@ -10,7 +10,7 @@ function CadastroCategoria() {
   const initialValues = {
     nome: '',
     descricao: '',
-    cor: '#414141'
+    cor: ''
   }
 
 
@@ -27,9 +27,10 @@ function CadastroCategoria() {
   }
 
   function handleChange(item){
-
-    const {getAttribute, value} = item.target
-    setValue(getAttribute('name'), value)
+    setValue(
+      item.target.getAttribute('name'),
+      item.target.value
+    )
   }
 
 
@@ -53,23 +54,31 @@ function CadastroCategoria() {
 
       <FormArea onSubmit={handleSubmit}>
         <FormField
+          label='Nome da Categoria'
+          type='text'
           value={values.nome}
+          name='nome'
           onChange={handleChange}
         />
-        <div>
+      
+      <FormField
+          label='Descrição'
+          type='text-area'
+          value={values.descricao}
+          name='descricao'
+          onChange={handleChange}
+        />
 
-          <Label>
-            Cor da categoria
-        <Input
-              type="color"
-              value={values.cor}
-              name='cor'
-              onChange={handleChange}
-            />
+      <FormField
+          label='Cor'
+          type='color'
+          value={values.cor}
+          name='cor'
+          onChange={handleChange}
+        />
 
-          </Label>
+        
 
-        </div>
         <button>Cadastrar</button>
       </FormArea>
 
@@ -77,7 +86,14 @@ function CadastroCategoria() {
       <ul>
         {categories.map((item, index) => {
           return (
-            <li key={`${item}${index}`}>{item.nome}</li>
+            <li key={`${item}${index}`}>{item.nome}
+              <ol>
+                Descrição: {item.descricao}
+              </ol>
+              <ol>
+                Cor: {item.cor}
+              </ol>
+            </li>
           )
         })}
       </ul>
