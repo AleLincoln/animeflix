@@ -1,12 +1,12 @@
 {
   "categorias": [
     {
-      "titulo": "Imersão React Alura",
-      "link": "https://www.alura.com.br/formacao-front-end",
+      "titulo": "Curso Grátis de Python para Iniciantes",
+      "link": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6",
       "cor": "#6BD1FF",
       "link_extra": {
         "text": "Playlist completa no Youtube",
-        "url": "https://www.youtube.com/watch?v=7qS-nlL6RSU&list=PLV1BOWceaMmK0sCVkwq_jxFUb6cbLe6iR"
+        "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6"
       },
       "videos": [
         {
@@ -70,7 +70,7 @@
       ]
     },
     {
-      "titulo": "Curso Grátis de JavaScript e ECMAScript para Iniciantes",
+      "titulo": "Conhecimento Grátis",
       "cor": "#9cd33b",
       "link_extra": {
         "text": "Playlist completa no Youtube",

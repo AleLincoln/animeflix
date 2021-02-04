@@ -10,9 +10,6 @@ function Menu(){
 
               <Link to="/home">  
                 <img src={Logo} className='Logo' alt='animeflix logo'/>            
-                </Link> 
-                <Link as={Link} className='ButtonLink' to='/cadastro/video'>
-                    Novo vídeo
                 </Link>
 
             </nav>

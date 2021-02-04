@@ -10,17 +10,14 @@ function Home() {
     <div style={{backgroundColor: '#141414'}}>
       <PageDefault>
       <BannerMain
-        videoTitle={dados_iniciais.categorias[1].videos[0].titulo}
-        url={dados_iniciais.categorias[1].videos[0].url}  
-        videoDescription={'O que é Front-end? Trabalhando na área os termos HTML, CSS e JavaScript fazem parte da rotina das desenvolvedoras e desenvolvedores. Mas o que eles fazem, afinal? Descubra com a Vanessa!'}
+        videoTitle={dados_iniciais.categorias[2].videos[1].titulo}
+        url={dados_iniciais.categorias[2].videos[1].url}  
+        videoDescription={'Hoje em dia já temos tecnologia para falsificar imagens, vídeos, gifs,texto, e até áudio. Mas será que temos como descobrir se um conteúdo é falso ou não? Se é artificial ou humano?'}
       
       />
       <Carousel
         ignoreFirstVideo
-        category={dados_iniciais.categorias[1]}
-      />
-         <Carousel
-        category={dados_iniciais.categorias[0]}
+        category={dados_iniciais.categorias[2]}
       />
       </PageDefault>
       
