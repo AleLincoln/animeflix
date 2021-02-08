@@ -6,7 +6,7 @@ Criação de um local onde todos os cursos, vídeos e explicações que eu utili
 
 Tecnologias utilizadas: ReactJs - Styled components - Rest API
 
-## Techinical Parts
+## Technical Parts
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
