@@ -1,3 +1,14 @@
+
+
+## Objetivo do projeto
+
+Criação de um local onde todos os cursos, vídeos e explicações que eu utilizei fiquem em um só lugar.
+
+Tecnologias utilizadas: ReactJs - Styled components - Rest API
+
+## Techinical Parts
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
