@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageDefault from '../../../components/PageDefault';
-import { FormArea, Label, Input } from '../../../components/FormStyle/styles';
+import {FormArea} from '../../../components/FormStyle/styles';
+import Button from '../../../components/Button'
 import FormField from '../../../components/FormField';
 
 function CadastroCategoria() {
@@ -37,17 +38,27 @@ function CadastroCategoria() {
     setValues(initialValues);
   }
 
+  useEffect(() => {
+    const URL = 'http://localhost:8080/categorias'
+
+    fetch(URL).then((resp)=>{
+      return resp
+    }).then((resp) => resp.json()).then((resp) => setCategories([
+      
+      ...resp
+    ]))
+  }, [])
+
   return (
     <PageDefault>
 
       <h1>
-        Cadastro de Categoria:
-        {values.nome}
+        Cadastro de categoria
       </h1>
 
       <FormArea onSubmit={handleSubmit}>
         <FormField
-          label="Nome da Categoria"
+          label='Nome da categoria:'
           type="text"
           value={values.nome}
           name="nome"
@@ -56,8 +67,8 @@ function CadastroCategoria() {
 
         <FormField
           as='textarea'
-          label="Descrição"
-          type=""
+          label="Descrição:"
+          type="textarea"
           value={values.descricao}
           name="descricao"
           onChange={handleChange}
@@ -70,9 +81,16 @@ function CadastroCategoria() {
           name="cor"
           onChange={handleChange}
         />
+       
 
-        <button>Cadastrar</button>
+        <Button>Cadastrar</Button>
       </FormArea>
+
+      {
+        categories.length === 0 && <div>
+          loanding
+        </div>
+      }
 
       <ul>
         {categories.map((item, index) => (
