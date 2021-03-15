@@ -1,0 +1,16 @@
+{
+    "categorias": [
+        {
+            "id": "1",
+            "nome": "Front-end",
+            "descricao": "alguma descrição",
+            "cor": "#fff"
+        },
+        {
+            "id": "2",
+            "nome": "Back-end",
+            "descricao": "alguma descrição",
+            "cor": "#fff"
+        }
+    ]
+}

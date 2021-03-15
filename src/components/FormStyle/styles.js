@@ -2,16 +2,20 @@ import styled from 'styled-components';
 
 
 export const FormArea = styled.form`
-text-align: center;
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 
 `;
 
 export const Label = styled.label`
+    text-align:center;
+    font-size:2em;
     display:flex;
     flex-direction:column;
-    text-align:center;
-    justify-content:center;
-    align-itens:center;
+    justify-content:space-evenly;
     
 
 `
@@ -22,8 +26,8 @@ export const Input = styled.input`
     border-radius:2em;
     height:36px;
     border: solid 1px var(--primary);   
-    margin:10px 0 10px 0;
     color:white;
+    display:flex;
 
 `
 
