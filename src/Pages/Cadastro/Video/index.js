@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageDefault from '../../../components/PageDefault'
 import { FormArea } from '../../../components/FormStyle/styles'
 import Button from '../../../components/Button'
@@ -48,6 +48,8 @@ function CadastroVideo() {
       </h1>
 
       <FormArea onSubmit={handleSubmit}>
+        
+
         <FormField
           label='Nome do vídeo:'
           type="text"

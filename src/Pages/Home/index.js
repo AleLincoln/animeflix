@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PageDefault from '../../components/PageDefault'
 import dados_iniciais from '../../components/Data/dados_iniciais.json'
 import BannerMain from '../../components/BannerMain'
 import Carousel from '../../components/Carousel'
 
+import categoriesRepository from '../../repositories/categories'
+
+
+
+
 
 function Home() {
+
+
+  categoriesRepository.getAllWithVideos().then((categoriasComVideos) => console.log(categoriasComVideos)).catch((err) => console.log(err))
+
+
+
   return (
     <div style={{backgroundColor: '#141414'}}>
       <PageDefault>

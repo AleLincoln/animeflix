@@ -3,6 +3,12 @@ import PageDefault from '../../../components/PageDefault';
 import {FormArea} from '../../../components/FormStyle/styles';
 import Button from '../../../components/Button'
 import FormField from '../../../components/FormField';
+import useForm from '../../../hooks/useForm';
+
+import URL from '../../../config'
+
+
+
 
 function CadastroCategoria() {
   const initialValues = {
@@ -11,22 +17,10 @@ function CadastroCategoria() {
     cor: '',
   };
 
+  const {values, handleChange, clearForm} = useForm(initialValues)
+
   const [categories, setCategories] = useState([]);
-  const [values, setValues] = useState(initialValues);
 
-  function setValue(chave, value) {
-    setValues({
-      ...values,
-      [chave]: value,
-    });
-  }
-
-  function handleChange(item) {
-    setValue(
-      item.target.getAttribute('name'),
-      item.target.value,
-    );
-  }
 
   function handleSubmit(item) {
     item.preventDefault();
@@ -35,11 +29,10 @@ function CadastroCategoria() {
       values,
     ]);
 
-    setValues(initialValues);
+    clearForm(initialValues);
   }
 
   useEffect(() => {
-    const URL = 'https://learnflixbackend.herokuapp.com/categorias'
 
     fetch(URL).then((resp)=>{
       return resp
@@ -93,19 +86,9 @@ function CadastroCategoria() {
       }
 
       <ul>
-        {categories.map((item, index) => (
-          <li key={`${item}${index}`}>
+        {categories.map((item) => (
+          <li key={`${item.id}`}>
             {item.titulo}
-            <ol>
-              Descrição:
-              {' '}
-              {item.descricao}
-            </ol>
-            <ol>
-              Cor:
-              {' '}
-              {item.cor}
-            </ol>
           </li>
         ))}
       </ul>
