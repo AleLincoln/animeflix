@@ -6,7 +6,7 @@ import FormField from '../../../components/FormField';
 
 function CadastroCategoria() {
   const initialValues = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '',
   };
@@ -39,7 +39,7 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL = 'http://localhost:8080/categorias'
+    const URL = 'https://learnflixbackend.herokuapp.com/categorias'
 
     fetch(URL).then((resp)=>{
       return resp
@@ -60,7 +60,7 @@ function CadastroCategoria() {
         <FormField
           label='Nome da categoria:'
           type="text"
-          value={values.nome}
+          value={values.titulo}
           name="nome"
           onChange={handleChange}
         />
@@ -95,7 +95,7 @@ function CadastroCategoria() {
       <ul>
         {categories.map((item, index) => (
           <li key={`${item}${index}`}>
-            {item.nome}
+            {item.titulo}
             <ol>
               Descrição:
               {' '}

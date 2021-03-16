@@ -49,7 +49,7 @@ function CadastroVideo() {
 
       <FormArea onSubmit={handleSubmit}>
         <FormField
-          label='Nome do vídeo'
+          label='Nome do vídeo:'
           type="text"
           value={values.nome}
           name="nome"

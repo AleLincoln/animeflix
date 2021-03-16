@@ -8,7 +8,6 @@ function Menu(){
     return (
         
             <nav className='Menu'>
-              <Button as={Link} className='ButtonLink' to='/cadastro/categoria'>Nova categoria</Button>
 
               <Link to="/home">  
                 <img src={Logo} className='Logo' alt='animeflix logo'/>            
