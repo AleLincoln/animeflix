@@ -34,13 +34,15 @@ function CadastroCategoria() {
 
   useEffect(() => {
 
-    fetch(URL).then((resp)=>{
+    fetch(`${URL}/categorias`).then((resp)=>{
       return resp
     }).then((resp) => resp.json()).then((resp) => setCategories([
       
       ...resp
     ]))
   }, [])
+
+  console.log(categories)
 
   return (
     <PageDefault>

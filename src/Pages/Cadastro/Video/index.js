@@ -3,41 +3,59 @@ import PageDefault from '../../../components/PageDefault'
 import { FormArea } from '../../../components/FormStyle/styles'
 import Button from '../../../components/Button'
 import FormField from '../../../components/FormField'
-import VideoIframeResponsive from '../../../components/BannerMain/components/VideoIframeResponsive'
+import useForm from '../../../hooks/useForm'
+
+import {Link, useHistory} from 'react-router-dom'
+
+import videosRepository from '../../../repositories/videos'
+import categoriesRepository from '../../../repositories/categories';
+
 
 
 function CadastroVideo() {
 
   const initialValues = {
-    nome: '',
-    link: '',
+    titulo: 'Jazz Music - Relaxing Cafe Music - Background Music For Study',
+    url: 'https://www.youtube.com/watch?v=km9Il_-FHjw',
+    categoria:'Front End'
   };
 
-  const [categories, setCategories] = useState([]);
-  const [values, setValues] = useState(initialValues);
+  const history = useHistory()
 
-  function setValue(chave, value) {
-    setValues({
-      ...values,
-      [chave]: value,
-    });
-  }
+  const {values, handleChange} = useForm(initialValues)
 
-  function handleChange(item) {
-    setValue(
-      item.target.getAttribute('name'),
-      item.target.value,
-    );
-  }
+  const [categorias, setCategorias] = useState([])
+
+  useEffect(() =>{
+    categoriesRepository.getAll().then((resp) => setCategorias(
+      resp
+    ))
+  }, [])
+
+  const titulosDasCategorias = categorias.length === 0? '':categorias.map(({titulo}) => titulo)
+
+  console.log(categorias)
+  console.log(titulosDasCategorias)
+
+
 
   function handleSubmit(item) {
     item.preventDefault();
-    setCategories([
-      ...categories,
-      values,
-    ]);
 
-    setValues(initialValues);
+    const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoria)
+    
+    console.log(categoriaEscolhida)
+    videosRepository.create(
+      {
+        titulo:values.titulo,
+        url:values.url,
+        categoriaId:categoriaEscolhida.id
+      }
+    ).then(() =>{
+      console.log('Video cadastrado')
+    })
+
+    history.push('/')
   }
 
   return (
@@ -53,8 +71,8 @@ function CadastroVideo() {
         <FormField
           label='Nome do vídeo:'
           type="text"
-          value={values.nome}
-          name="nome"
+          value={values.titulo}
+          name="titulo"
           onChange={handleChange}
         />
 
@@ -62,27 +80,25 @@ function CadastroVideo() {
           as='text'
           label="Link:"
           type="text"
-          value={values.link}
-          name="link"
+          value={values.url}
+          name="url"
           onChange={handleChange}
+        />
+        <FormField
+          as='datalist'
+          label="categoria:"
+          type="text"
+          value={values.categoria}
+          name="categoria"
+          onChange={handleChange}
+          suggestions={titulosDasCategorias}
         />
        
 
         <Button>Cadastrar</Button>
       </FormArea>
 
-      <ul>
-        {categories.map((item, index) => (
-          <li key={`${item}${index}`}>
-            {item.nome}
-            <ol>
-              Descrição:
-              {' '}
-              {item.descricao}
-            </ol>
-          </li>
-        ))}
-      </ul>
+      <Link to={'/cadastro/categoria'}>Cadastrar categoria </Link>
 
     </PageDefault>
   );
